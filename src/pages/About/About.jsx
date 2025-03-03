@@ -8,12 +8,12 @@ const About = () => {
   return (
     <>
     
-    <div className=''>
-        <div className='grid grid-cols-2 '>
-            <div className='bg-cover '>
-              <img src={img1} alt="" className='h-[710px] w-full bg-center bg-cover'/>
+    <div className='' id='about'>
+        <div className='grid grid-cols-1 md:grid-cols-2 '>
+            <div className='min-h-screen bg-cover'>
+              <img src={img1} alt="" className='h-[100%]'/>
             </div>
-            <div className="h-[710px] bg-cover" style={{ backgroundImage: `url(${img2})`, backgroundRepeat: "no-repeat" }}>
+            <div className="min-h-screen bg-cover" style={{ backgroundImage: `url(${img2})`, backgroundRepeat: "no-repeat" }}>
               <div className="flex p-6 text-white flex-col justify-center items-start">
                 <h2 className='font-bold text-4xl px-4 py-2 rounded-md'>
                   मल्लाप्पा विराप्पा मजती (MVM) <br/>

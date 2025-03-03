@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { motion, AnimatePresence, animate } from "framer-motion";
 import logo from "../assets/logo.png";
+import { ROUTES, NAV_LINKS } from "../constant";
 
 const wrapperVariants = {
   open: {
@@ -30,32 +31,129 @@ const itemVariants = {
   closed: { opacity: 0, y: -15, transition: { duration: 0.7 } },
 };
 
+const navVariants = {
+  initial: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    padding: "1.5rem",
+    transition: { duration: 0.5, ease: "easeInOut" },
+  },
+  sticky: {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    width: "100%",
+    padding: "0rem",
+    transition: { duration: 0.5, ease: "easeInOut" },
+  },
+};
+
+const innerVariants = {
+  initial: {
+    maxWidth: "80rem",
+    paddingLeft: "1.5rem",
+    paddingRight: "1.5rem",
+    transition: { duration: 0.5, ease: "easeInOut" },
+  },
+  sticky: {
+    maxWidth: "100%",
+    paddingLeft: "0rem",
+    paddingRight: "0rem",
+    transition: { duration: 0.5, ease: "easeInOut" },
+  },
+};
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  // Scroll to top only if already on Home.
+  const scrollToTop = (e) => {
+    if (location.pathname === ROUTES.HOME) {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const scrollToAbout = (e) => {
+    if (location.pathname === ROUTES.HOME) {
+      e.preventDefault();
+      const aboutSection = document.getElementById("about");
+      if (aboutSection) {
+        const targetY =
+          aboutSection.getBoundingClientRect().top + window.pageYOffset;
+        animate(window.pageYOffset, targetY, {
+          duration: 1.5,
+          onUpdate: (latest) => window.scrollTo(0, latest),
+        });
+      }
+    } else {
+     
+      
+      navigate(ROUTES.HOME);
+    }
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsSticky(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+
+  const links = [
+    { name: "Home", path: ROUTES.HOME, onClick: scrollToTop },
+    { name: "Gifting", path: ROUTES.GIFTING },
+    { name: "Collections", path: ROUTES.COLLECTIONS },
+    { name: "Gallery", path: ROUTES.GALLERY },
+    { name: "Blog", path: ROUTES.BLOG },
+
+    { name: "About", path: ROUTES.ABOUT, onClick: scrollToAbout },
+    { name: "Contact Us", path: ROUTES.CONTACT },
+  ];
 
   return (
-    <nav className="absolute top-0 left-0 w-full p-6 z-10">
-      <div className="max-w-7xl bg-gray-200 shadow-md mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
+    <motion.nav
+      initial={false}
+      animate={isSticky ? "sticky" : "initial"}
+      variants={navVariants}
+      className="z-10 transition-all duration-600"
+    >
+      <motion.div
+        initial={false}
+        animate={isSticky ? "sticky" : "initial"}
+        variants={innerVariants}
+        className="bg-gray-200 shadow-md mx-auto transition-all duration-600"
+      >
+        <div className="container flex justify-between items-center py-4">
           {/* Logo */}
           <div>
-            <Link to="/">
+            <Link to={ROUTES.HOME}>
               <img className="h-10 w-auto" src={logo} alt="Your Company" />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
-            {["/", "/gifting", "/gallery", "/blog", "/about", "/contact"].map((path) => (
+            {links.map((link) => (
               <Link
-                key={path}
-                to={path}
+                key={link.name}
+                to={link.path}
+                onClick={link.onClick}
                 className="relative text-primary font-medium text-lg transition duration-300 hover:text-blue-600"
               >
-                {path === "/" ? "Home" : path.substring(1).charAt(0).toUpperCase() + path.substring(2)}
-
-                {location.pathname === path && (
+                {link.name}
+                {location.pathname === link.path && (
                   <motion.div
                     layoutId="underline"
                     className="absolute left-0 bottom-[-2px] h-0.5 bg-blue-600"
@@ -78,18 +176,38 @@ const Navbar = () => {
               variants={iconVariants}
             >
               {isOpen ? (
-                <svg className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
               ) : (
-                <svg className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16m-16 6h16" />
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4 6h16M4 12h16m-16 6h16"
+                  />
                 </svg>
               )}
             </motion.button>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Mobile Navigation Menu */}
       <AnimatePresence>
@@ -102,14 +220,18 @@ const Navbar = () => {
             className="md:hidden bg-gray-100 origin-top"
           >
             <div className="px-4 pb-3 space-y-2">
-              {["/", "/gifting", "/gallery", "/blog", "/about", "/contact"].map((path) => (
-                <motion.div key={path} variants={itemVariants}>
+              {links.map((link) => (
+                <motion.div key={link.name} variants={itemVariants}>
                   <Link
-                    to={path}
+                    to={link.path}
+                    onClick={() => {
+                      setIsOpen(false);
+                      // Run custom onClick if provided (e.g. scroll behavior)
+                      if (link.onClick) link.onClick();
+                    }}
                     className="block text-primary font-medium text-lg py-2 transition duration-300 hover:text-blue-600"
-                    onClick={() => setIsOpen(false)}
                   >
-                    {path === "/" ? "Home" : path.substring(1).charAt(0).toUpperCase() + path.substring(2)}
+                    {link.name}
                   </Link>
                 </motion.div>
               ))}
@@ -117,7 +239,7 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </motion.nav>
   );
 };
 

@@ -1,13 +1,25 @@
-import React from 'react'
-import Navbar from '../pages/Navbar'
-import Banner from "../pages/Banner"
+import React from "react";
+import Banner from "../pages/Banner";
+import About from "../pages/About/About";
+import Layout from "../pages/layout/Layout";
+
 const Home = () => {
   return (
     <div>
-        <Navbar/>
-        <Banner/>
-    </div>
-  )
-}
 
-export default Home
+    <Layout>
+
+            <div id="">
+
+      <Banner />
+      </div>
+      <div id="">
+        <About />
+      </div>
+    </Layout>
+
+    </div>
+  );
+};
+
+export default Home;
