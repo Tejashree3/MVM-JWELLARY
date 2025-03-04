@@ -5,7 +5,7 @@ import About from "./pages/About/About"
 import Footer from "./pages/Footer"
 import Layout from "./pages/layout/Layout"
 import { ROUTES } from "./constant"
-import Contact from "./pages/layout/Contact"
+import Contact from "./pages/Contact"
 function App() {
 
   return (
