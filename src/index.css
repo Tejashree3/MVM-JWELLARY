@@ -85,3 +85,12 @@ font-size: 48px;
 .shadow{
   box-shadow: 0 4px 6px rgb(255 255 255 / 18%);
 }
+
+.shop-now{
+  background-color: white;
+  padding: 8px 12px;
+  border-radius: 50px;
+  color: #57321A;
+font-weight: 700;
+box-shadow: 0px 0px 10px white;
+}

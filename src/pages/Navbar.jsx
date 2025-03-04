@@ -71,7 +71,6 @@ const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Scroll to top only if already on Home.
   const scrollToTop = (e) => {
     if (location.pathname === ROUTES.HOME) {
       e.preventDefault();
@@ -103,7 +102,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsSticky(window.scrollY > 50);
+      setIsSticky(window.scrollY > 20);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -127,36 +126,34 @@ const Navbar = () => {
       initial={false}
       animate={isSticky ? "sticky" : "initial"}
       variants={navVariants}
-      className="z-10 transition-all duration-600"
+      className="z-10 transition-all duration-400"
     >
       <motion.div
         initial={false}
         animate={isSticky ? "sticky" : "initial"}
         variants={innerVariants}
-        className="bg-gray-200 shadow-md mx-auto transition-all duration-600"
+        className="bg-gray-200 shadow-md mx-auto transition-all duration-400"
       >
         <div className="container flex justify-between items-center py-4">
-          {/* Logo */}
           <div>
             <Link to={ROUTES.HOME}>
               <img className="h-10 w-auto" src={logo} alt="Your Company" />
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
             {links.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
                 onClick={link.onClick}
-                className="relative text-primary font-medium text-lg transition duration-300 hover:text-blue-600"
+                className="relative text-primary font-medium text-lg transition duration-300 hover:text-[#57321A]"
               >
                 {link.name}
                 {location.pathname === link.path && (
                   <motion.div
                     layoutId="underline"
-                    className="absolute left-0 bottom-[-2px] h-0.5 bg-blue-600"
+                    className="absolute left-0 bottom-[-2px] h-0.5 bg-[#57321A]"
                     initial={{ width: 0 }}
                     animate={{ width: "100%" }}
                     transition={{ duration: 0.3 }}
@@ -166,7 +163,6 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="md:hidden">
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
@@ -209,7 +205,6 @@ const Navbar = () => {
         </div>
       </motion.div>
 
-      {/* Mobile Navigation Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -226,10 +221,9 @@ const Navbar = () => {
                     to={link.path}
                     onClick={() => {
                       setIsOpen(false);
-                      // Run custom onClick if provided (e.g. scroll behavior)
                       if (link.onClick) link.onClick();
                     }}
-                    className="block text-primary font-medium text-lg py-2 transition duration-300 hover:text-blue-600"
+                    className="block text-primary font-medium text-lg py-2 transition duration-300 hover:text-[#57321A]"
                   >
                     {link.name}
                   </Link>
