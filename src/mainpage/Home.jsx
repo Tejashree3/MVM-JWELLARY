@@ -7,16 +7,16 @@ const Home = () => {
   return (
     <div>
 
-    <Layout>
+      <Layout>
 
-            <div id="">
+        <div id="">
 
-      <Banner />
-      </div>
-      <div id="">
-        <About />
-      </div>
-    </Layout>
+          <Banner />
+        </div>
+        <div id="">
+          <About />
+        </div>
+      </Layout>
 
     </div>
   );
