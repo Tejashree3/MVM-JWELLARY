@@ -8,7 +8,7 @@ const Contact = () => {
     <>
     <div className="min-h-screen flex justify-center items-center">
 
-    <div className="container  ">
+    <div className="container">
 
     <div className=" flex flex-col md:flex-row p-2 md:p-2 rounded-lg shadow-lg w-full max-w-5xl mx-auto">
       <div className="relative overflow-hidden bg-[#660033] text-white poppins p-10 rounded-bl-lg rounded-tl-lg md:max-w-1/3 flex flex-col justify-between">
