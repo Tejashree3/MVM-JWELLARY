@@ -4,6 +4,8 @@ const ROUTES = {
     COLLECTIONS: "/collections",
     GALLERY: "/gallery",
     BLOG: "/blog",
+    PRODUCTS: "/products",
+
     ABOUT: "/about",
     CONTACT: "/contact",
 };
@@ -14,6 +16,8 @@ const NAV_LINKS = [
     { name: "Collections", path: ROUTES.COLLECTIONS },
     { name: "Gallery", path: ROUTES.GALLERY },
     { name: "Blog", path: ROUTES.BLOG },
+    { name: "Product", path: ROUTES.PRODUCTS },
+
     { name: "About Us", path: ROUTES.ABOUT },
     { name: "Contact Us", path: ROUTES.CONTACT },
 ];

@@ -71,34 +71,7 @@ const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const scrollToTop = (e) => {
-    if (location.pathname === ROUTES.HOME) {
-      e.preventDefault();
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    }
-  };
 
-  const scrollToAbout = (e) => {
-    if (location.pathname === ROUTES.HOME) {
-      e.preventDefault();
-      const aboutSection = document.getElementById("about");
-      if (aboutSection) {
-        const targetY =
-          aboutSection.getBoundingClientRect().top + window.pageYOffset;
-        animate(window.pageYOffset, targetY, {
-          duration: 1.5,
-          onUpdate: (latest) => window.scrollTo(0, latest),
-        });
-      }
-    } else {
-     
-      
-      navigate(ROUTES.HOME);
-    }
-  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -111,13 +84,13 @@ const Navbar = () => {
 
 
   const links = [
-    { name: "Home", path: ROUTES.HOME, onClick: scrollToTop },
+    { name: "Home", path: ROUTES.HOME },
     { name: "Gifting", path: ROUTES.GIFTING },
     { name: "Collections", path: ROUTES.COLLECTIONS },
     { name: "Gallery", path: ROUTES.GALLERY },
     { name: "Blog", path: ROUTES.BLOG },
 
-    { name: "About", path: ROUTES.ABOUT, onClick: scrollToAbout },
+    { name: "About", path: ROUTES.ABOUT },
     { name: "Contact Us", path: ROUTES.CONTACT },
   ];
 
@@ -126,7 +99,7 @@ const Navbar = () => {
       initial={false}
       animate={isSticky ? "sticky" : "initial"}
       variants={navVariants}
-      className="z-10 transition-all duration-400"
+      className="z-10 transition-all duration-400 "
     >
       <motion.div
         initial={false}
@@ -134,7 +107,7 @@ const Navbar = () => {
         variants={innerVariants}
         className="bg-gray-200 shadow-md mx-auto transition-all duration-400"
       >
-        <div className="container flex justify-between items-center py-4">
+        <div className="container flex justify-between items-center py-5">
           <div>
             <Link to={ROUTES.HOME}>
               <img className="h-10 w-auto" src={logo} alt="Your Company" />

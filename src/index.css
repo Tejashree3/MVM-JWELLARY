@@ -8,6 +8,9 @@
   --primary: #57321A;
   font-family: "Poppins", sans-serif;
 }
+
+
+
 .container {
   max-width: 1280px; 
   width: 100%;
@@ -49,6 +52,43 @@ body {
   font-family: "Roboto", sans-serif;
 
 }
+
+.scroll-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #600130;
+  color: white;
+  border: none;
+  padding: 17px 17px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease-in-out, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.scroll-top:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+}
+
+.scroll-top:after {
+  position: absolute;
+  z-index: -1;
+  content: '';
+  top: 100%;
+  left: 5%;
+  height: 13px;
+  width: 95%;
+  opacity: 1;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0) 83%);
+}
+
+
 .about-text{
   font-family: "Baloo 2", sans-serif;
 
@@ -93,4 +133,40 @@ font-size: 48px;
   color: #57321A;
 font-weight: 700;
 box-shadow: 0px 0px 10px white;
+}
+
+.card{
+  padding: 10px;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  /* box-shadow: 0px 0px 10px rgba(224, 224, 224, 0.199); */
+}
+.card-title{
+  color: #717171;
+  font-size: 14px;
+}
+.card-subtitle{
+  color: #1E1E1E;
+  font-size: 14px;
+  font-weight: 600;
+}
+.card-img {
+  width: 100%;
+  height: 260px;
+  background-color: #ecebeba6;
+}
+
+.price-wrong{
+  color: #717171;
+  font-size: 14px;
+padding-left: 5px;
+text-decoration: line-through;
+
+}
+.price{
+  color:#B53A3A;
+  font-size: 14px;
+
 }

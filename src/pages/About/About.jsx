@@ -3,12 +3,29 @@ import img1 from "../../assets/about/about1.png"
 import img2 from "../../assets/about/about2.png"
 import img3 from "../../assets/about/strip.png"
 import Prampara from './Prampara'
-
+import { Link } from 'react-router-dom'
+import img from "../../assets/logo.png"
+import Navbar from "../Navbar"
 const About = () => {
   return (
     <>
-    
-    <div className='' id='about'>
+     {/* <nav className="bg-transparent p-4">
+      <div className="container mx-auto flex items-center">
+        <Link to="/">
+        <img
+          src={img}
+          alt="Logo"
+          className="h-12 w-auto"
+        />
+        </Link>
+      </div>
+    </nav> */}
+
+
+<Navbar/>
+
+
+    <div className='' >
         <div className='grid grid-cols-1 md:grid-cols-2 '>
             <div className='min-h-screen bg-cover'>
               <img src={img1} alt="" className='h-[100%]'/>

@@ -2,6 +2,8 @@ import React from 'react';
 import img from "../../assets/navri/navri.png";
 import img1 from "../../assets/navri/img1.png";
 import img2 from "../../assets/navri/img2.png";
+import { Link } from 'react-router-dom';
+import { ROUTES } from '../../constant';
 
 const Navri = () => {
   return (
@@ -17,9 +19,11 @@ const Navri = () => {
 <img src={img2} alt="" />
 
 <div className=''>
+  <Link to={ROUTES.PRODUCTS}>  
     <button className='shop-now'>
         SHOP NOW
     </button>
+    </Link>
 </div>
 </div>
 </div>
