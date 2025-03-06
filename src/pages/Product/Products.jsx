@@ -10,7 +10,7 @@ import { IoMdHeart } from 'react-icons/io'
 import { Link } from 'react-router-dom'
 import { ROUTES } from '../../constant'
 
-const categories = ["Charms","Earrings" ,"Ring", "Necklace", "Bracelet"];
+const categories = ["Charms (33)","Earrings (23)" ,"Ring (55)", "Necklace (55)", "Bracelet (11)"];
 const products = [
   { id: 1, name: "-20% BLACK FRIDAY", category: "Pulsera Moments Cadena de Serpiente con cierre de Corazón", image:card1 },
   { id: 2, name: "Gold Necklace", category: "Necklace", image:card },
@@ -65,7 +65,7 @@ const Products = () => {
 </div>
 <div className="flex min-h-screen px-6 py-15">
       <div className="w-[284px]  p-4">
-        <div className='border-b-gray-400  '>
+        <div className='border-b  '>
 
         <h2 className="text-2xl font-normal mb-4">Categories</h2>
         {categories.map((category) => (
@@ -73,7 +73,7 @@ const Products = () => {
             <input
               type="checkbox"
               id={category}
-              className="mr-6 p-3 w-5 h-5"
+              className="mr-8 p-3 w-5 h-5"
               checked={selectedCategories.includes(category)}
               onChange={() => toggleCategory(category)}
             />
@@ -86,7 +86,21 @@ const Products = () => {
       <div className="w-[1000px] p-4 grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-4">
         {filteredProducts.map((product) => (
           <div key={product.id} className="card">
-            <img src={product.image} alt={product.name} className="card-img mb-3" />
+<div className="relative group">
+  <Link to={ROUTES.PRODUCTVIEW}>
+    <img src={product.image} alt={product.name} className="card-img mb-3 w-full" />
+  </Link>
+
+  {/* Add to Cart Button */}
+  <div className="absolute bottom-7 left-0 right-0 h-10 flex justify-center items-center">
+    <button className="w-56 h-9 bg-black/100 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      Add to Cart
+    </button>
+  </div>
+</div>
+
+
+            
             <div className="flex gap-2">
   <label className="cursor-pointer">
     <input type="radio" name="color" className="hidden peer" />
@@ -115,7 +129,7 @@ const Products = () => {
             <p className='price'>$534534   <span className='price-wrong'>$232323</span></p>
             </div>
             <button className="absolute top-6 right-6 text-gray-500 hover:text-red-500">
-                <IoMdHeart size={20} />
+                <IoMdHeart size={30} />
               </button>
           </div>
         ))}

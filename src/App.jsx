@@ -9,6 +9,9 @@ import Contact from "./pages/Contact";
 import { ROUTES } from "./constant";
 import Loader from "./pages/layout/Loader";
 import Products from "./pages/Product/Products";
+import ViewProductPage from "./pages/Product/ViewProductPage";
+import Gallery from "./pages/gallery/Gallery";
+import ViewGallery from "./pages/gallery/ViewGallery";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -34,9 +37,14 @@ function App() {
     <Router>
       <Routes>
         <Route path={ROUTES.HOME} element={<Home />} />
-        <Route path={ROUTES.ABOUT} element={<About />} />
-        <Route path={ROUTES.CONTACT} element={<Contact />} />
-        <Route path={ROUTES.PRODUCTS} element={<Products />} />
+         {/* <Route path={ROUTES.ABOUT} element={<About />} />
+       <Route path={ROUTES.CONTACT} element={<Contact />} />
+        <Route path={ROUTES.PRODUCTS} element={<Products />} /> 
+        <Route path={ROUTES.PRODUCTVIEW} element={<ViewProductPage />} />
+        <Route path={ROUTES.GALLERY} element={<Gallery />} />
+
+        <Route path={ROUTES.GALLERYVIEW} element={<ViewGallery />} /> */}
+
 
       </Routes>
       <Footer />

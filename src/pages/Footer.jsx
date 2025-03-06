@@ -59,7 +59,7 @@ const Footer = () => {
           <h3 className="font-bold text-lg pb-2">Subscribe</h3>
     </div>
 
-        {/* Subscribe Section */}
+
         <div className="flex flex-col items-center py-6 w-full max-w-80 ">
           <div className="relative flex items-center border border-white/30 rounded-full shadow overflow-hidden w-full ">
             <input

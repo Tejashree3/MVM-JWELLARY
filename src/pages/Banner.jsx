@@ -6,9 +6,8 @@ import banner2 from "../assets/banner-2.png";
 
 import banner3 from "../assets/banner-3.png";
 import Ribben from "./Ribben";
-import Navbar from "./Navbar";
 
-const images = [banner1, banner2,banner3];
+const images = [banner1, banner2, banner3];
 
 export default function ImageSlider() {
   const [page, setPage] = useState(0);
@@ -35,8 +34,10 @@ export default function ImageSlider() {
             animate={{ x: "0%" }}
             exit={{ x: direction > 0 ? "-100%" : "100%" }}
             transition={{ duration: 1, ease: "easeInOut" }}
+            whileHover={{ scale: 1.1 }}
           />
         </AnimatePresence>
+
 
         <button
           onClick={() => paginate(-1)}
