@@ -5,22 +5,35 @@ import Layout from "../pages/layout/Layout";
 import Navri from "../pages/Banner/Navri";
 import Navbar from "../pages/Navbar";
 import Purusharth from "../pages/Banner/Purusharth";
+import Ribben from "../pages/Ribben";
+import Parampara from "../pages/Banner/Parampara";
+import Shrungar from "../pages/Banner/Shrungar";
+import Sushobhit from "../pages/Banner/Sushobhit";
+import Soundarya from "../pages/Banner/Soundarya";
+import Special from "../pages/Banner/Special";
 
 const Home = () => {
   return (
     <div>
       <Navbar/>
       
-       <div id="">
         <Banner />
-      </div>
 
-      <div className="">
         <Navri />
-      </div>    
-      <div className="">
+<Ribben/>
         <Purusharth />
-      </div>   
+        <Ribben/>
+
+        <Parampara/>
+        <Ribben/>
+        <Shrungar/>
+        <Ribben/>
+        <Sushobhit/>
+        <Ribben/>
+<Special/>
+<Ribben/>
+
+<Soundarya/>
     </div>
   );
 };

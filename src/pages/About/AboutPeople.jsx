@@ -1,13 +1,15 @@
 import React from 'react'
 import img1 from "../../assets/about/image-box.png"
 import img2 from "../../assets/about/image-box-2.png"
+import b from "../../assets/about/about-b.png";
 
 const AboutPeople = () => {
   return (
     <>
     
     <div className='flex justify-center flex-col py-10'
-    
+        style={{backgroundImage:`url(${b})`}}
+
     
     >
         <div className='container '>
@@ -32,7 +34,7 @@ const AboutPeople = () => {
 </div>
 <div className="py-20 flex justify-center flex-col items-center gap-7">
   <div className="w-full max-w-[870px] px-8">
-    <p className="text-center poppins font-normal text-3xl text-[#000000]">
+    <p className="text-center poppins font-light text-3xl text-[#000000]">
       MVM ज्वेलर्सचा पाया टाकणारे मल्लाप्पा विराप्पा मजती 
       यांनी त्यांच्या कष्टाने आणि निष्ठेने व्यवसायाची मुहूर्तमेढ रोवली. 
       दागिन्यांचे कौशल्य, पारख आणि ग्राहकांप्रती असलेली निष्ठा ही
@@ -40,7 +42,7 @@ const AboutPeople = () => {
     </p>
   </div>
   <div className="w-full max-w-[870px] px-8">
-    <p className="text-center poppins font-normal text-3xl text-[#000000]">
+    <p className="text-center poppins font-light text-3xl text-[#000000]">
       लहानशा कार्यशाळेतून सुरू झालेली ही यात्रा आज एक प्रतिष्ठित नाव बनली आहे. 
       त्यांच्या मेहनतीमुळे केवळ एक व्यवसाय नव्हे, तर एक परंपरा जन्मास आली – 
       जिथे प्रत्येक दागिना हा विश्वास, निसर्गरम्यता आणि गुणवत्तेचे प्रतीक असतो.

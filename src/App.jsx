@@ -37,9 +37,9 @@ function App() {
     <Router>
       <Routes>
         <Route path={ROUTES.HOME} element={<Home />} />
-         {/* <Route path={ROUTES.ABOUT} element={<About />} />
-       <Route path={ROUTES.CONTACT} element={<Contact />} />
-        <Route path={ROUTES.PRODUCTS} element={<Products />} /> 
+         <Route path={ROUTES.ABOUT} element={<About />} />
+      <Route path={ROUTES.CONTACT} element={<Contact />} />
+        {/*<Route path={ROUTES.PRODUCTS} element={<Products />} /> 
         <Route path={ROUTES.PRODUCTVIEW} element={<ViewProductPage />} />
         <Route path={ROUTES.GALLERY} element={<Gallery />} />
 
